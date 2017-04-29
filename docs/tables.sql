@@ -1,13 +1,13 @@
-create table user(
+create table if not exists user(
 	stu_id int(12) unsigned key ,
-	name var(50),
+	name varchar(50),
 	nick_name varchar(50),
 	password varchar(32),
 	gender tinyint,
 	signature varchar(100)
 );
 
-create table resource(
+create table if not exists resource(
 	resource_id int unsigned key auto_increment,
 	title varchar(50),
 	description varchar(100),
@@ -17,33 +17,38 @@ create table resource(
 	download_link varchar(100)
 );
 
-create table article(
+create table if not exists article(
 	article_id int unsigned key auto_increment,
 	title varchar(50),
 	content text,
 	author varchar(50),
-	create_date int(11),
+	create_date int(11)
 );
 
-create table article_imgs(
+create table if not exists article_imgs(
 	id int unsigned key auto_increment,
 	article_id int unsigned,
 	img_link varchar(100)
 );
 
-create table topic(
+create table if not exists topic(
 	topic_id int unsigned key auto_increment,
 	title varchar(100),
 	description text,
 	raiser varchar(50),
-	dateline int(11) unsigned,
+	dateline int(11) unsigned
 );
 
-create table topic_response(
+create table  if not exists topic_response(
 	id bigint unsigned key auto_increment,
 	topic_id int unsigned,
 	responsor varchar(50),
 	dateline int(11) unsigned,
 	response_body text
-)
+);
 
+create table if not exists admin(
+	stu_id int(12) unsigned key ,
+	name varchar(50),
+	nick_name varchar(50)
+);
