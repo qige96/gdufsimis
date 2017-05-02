@@ -10,3 +10,7 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+ function md5Process($password){
+	$key = 'imis';
+	return md5($password.$key);
+}

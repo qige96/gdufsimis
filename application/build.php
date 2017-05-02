@@ -25,7 +25,7 @@ return [
     'index' => [
         '__dir__' => ['controller', 'view'],
         'controller' => ['Index', 'Login', 'Article'],
-        'view' => ['index/index', 'login/index', 'article/index'],
+        'view' => ['index/index', 'login/index', 'login/logincheck', 'article/index'],
     ],
     'inner' => [
         '__dir__' => ['controller', 'view'],
@@ -39,7 +39,7 @@ return [
     ],
     'api' => [
         '__dir__' => ['controller'],
-        'controller' => []
+        'controller' => ['Resource', 'Topic', 'More']
     ],
     'common' => [
         '__dir__' => ['controller', 'model'],
