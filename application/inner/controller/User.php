@@ -6,8 +6,9 @@ class User EXTENDS Controller
 	private $user;
 	public function _initialize(){
 		$this->user = model('User');
+		
 	} 
-
+	
 	public function index(){
 		return $this->fetch();
 	}
