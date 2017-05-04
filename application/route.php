@@ -35,6 +35,9 @@ return [
     'api/get_all_resource_info' =>[
         'inner/Resource/getAllResourceInfo', ['method' => 'get'], 
     ],
+    // 'api/add_article' => [
+    //     'index/Article/addArticle', ['method' => 'post'], 
+    // ]
     // 'api/update_resource_info/:resource_id' => [
     //     'admin/Resource/updateResourceInfo', ['method' => 'get|post'], ['resource_id'=>'\d+'],
     // ],

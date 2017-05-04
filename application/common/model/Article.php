@@ -5,5 +5,21 @@ use think\Model;
 
 class Article extends Model
 {
+	public function addArticle($article_data)
+	{
+		$this->save($article_data);
+	}
 
+	public function getArticle($article_id)
+	{
+		return $this->where('article_id', $article_id)
+					->find();
+	}
+
+	public function getAllArticleInfo()
+	{
+		return $this->field('article_id,title,description')
+					// ->where('article_id', '3')
+					->select();
+	}
 }
