@@ -34,6 +34,10 @@ class Article EXTENDS Controller
     	];
     	
     	$res = $article->addArticle($article_data);
+    	if($res)
+    		return '文章发布成功！';
+    	else 
+    		return '文章发布失败！';
     	
     }
 

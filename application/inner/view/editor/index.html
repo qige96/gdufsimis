@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
 </head>
 <body>
-This is the index page of editor.<br/>
+This is the index page of editor.<br/><a href="{:url('login/logout')}">退出登陆</a>
 <button id="publish">发布</button>
 title<input type="text" name="title"><br/>
 description<input type="text" name="description"><br/>
@@ -113,7 +113,9 @@ $[200](about:blank)
 			description: description,
 			content: content
 		};
-		$.post("../index/article/addArticle", article_data);
+		$.post("../index/article/addArticle", article_data, function(data, status){
+			alert(status+"\n"+data);
+		});
 	}
 </script>
 </html>

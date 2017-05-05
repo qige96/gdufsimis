@@ -1,13 +1,8 @@
 <?php
 namespace app\inner\controller;
 use think\Controller;
-class User EXTENDS Controller
+class User EXTENDS Base
 {
-	private $user;
-	public function _initialize(){
-		$this->user = model('User');
-		
-	} 
 	
 	public function index(){
 		return $this->fetch();
@@ -26,7 +21,7 @@ class User EXTENDS Controller
 		if($data['password'] != md5Process('')) //判断密码框是否为空
 			if($data['password'] != $data['confirm_password'])
 				$this->error('两次输入的密码不一致！');
-		$res = $this->user->updateUser($data);
+		$res = model('User')->updateUser($data);
 		if($res)
 			$this->success('更新成功！');
 		else 

@@ -1,14 +1,8 @@
 <?php
 namespace app\inner\controller;
 use think\Controller;
-class Resource EXTENDS Controller
+class Resource EXTENDS Base
 {
-
-	private $resource;
-	public function _initialize()
-	{
-		$this->resource = model('Resource');
-	}
 
 	public function index(){
 		return $this->fetch();
@@ -17,20 +11,20 @@ class Resource EXTENDS Controller
 	public function getResourceInfo()
 	{
 		$resource_id = input('resource_id');
-		$resource_data = $this->resource->getResourceInfo($resource_id);
+		$resource_data = model('Resource')->getResourceInfo($resource_id);
 		return $resource_data;
 	}
 
 	public function getAllResourceInfo()
 	{
-		$resource_data = $this->resource->getAllResourceInfo();
+		$resource_data = model('Resource')->getAllResourceInfo();
 		return $resource_data;
 	}
 
 	public function download()
 	{
 		$resource_id = input('resource_id');
-		$download_link = $this->resource->getDownloadLink($resource_id);
+		$download_link = model('Resource')->getDownloadLink($resource_id);
 		$file = $download_link[0]['file_path'];
 		header('content-disposition:attachment; filename='.basename($file));
 		header('content-length:'.filesize($file));
@@ -49,7 +43,7 @@ class Resource EXTENDS Controller
 	    	$upload_data['description'] = input('description');
 	    	$upload_data['file_path'] = ROOT_PATH. 'public'. DS. 'uploads\\'.$info->getSaveName();
 	    	// dump($upload_data);
-	    	$this->resource->addResource($upload_data);
+	    	model('Resource')->addResource($upload_data);
         	
         	$this->success('上传成功'.$info->getSaveName()); 
 	    }else{

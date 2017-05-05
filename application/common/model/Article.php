@@ -7,7 +7,7 @@ class Article extends Model
 {
 	public function addArticle($article_data)
 	{
-		$this->save($article_data);
+		return $this->save($article_data);
 	}
 
 	public function getArticle($article_id)

@@ -14,3 +14,7 @@
 	$key = 'imis';
 	return md5($password.$key);
 }
+
+function isLogin(){
+	
+}
