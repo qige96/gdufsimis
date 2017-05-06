@@ -5,9 +5,10 @@ class Resource EXTENDS Base
 {
 
 	public function index(){
-		return $this->fetch();
+		return $this->fetch();//显示资源社区主页
 	}
 
+	// 获取资源信息，返回json给前端，用于生成资源列表
 	public function getResourceInfo()
 	{
 		$resource_id = input('resource_id');
@@ -15,12 +16,14 @@ class Resource EXTENDS Base
 		return $resource_data;
 	}
 
+	// 获取全部资源信息，返回json给前端，用于生成资源列表
 	public function getAllResourceInfo()
 	{
 		$resource_data = model('Resource')->getAllResourceInfo();
 		return $resource_data;
 	}
 
+	// 下载资源的逻辑，根据资源id返回资源
 	public function download()
 	{
 		$resource_id = input('resource_id');
@@ -32,27 +35,29 @@ class Resource EXTENDS Base
 		readfile($file);
 	}
 
+	// 资源上传逻辑
 	public function upload()
 	{
+		// 获取资源并保存到服务器资源路径
 		$file = request()->file('file');
-		$info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+		$info = $file->move(ROOT_PATH . 'public' . DS . 'resources');
 
 		if($info){
 		    $upload_data = $this->getUploadData();
 	    	$upload_data['title'] = input('title');
 	    	$upload_data['description'] = input('description');
-	    	$upload_data['file_path'] = ROOT_PATH. 'public'. DS. 'uploads\\'.$info->getSaveName();
+	    	$upload_data['file_path'] = ROOT_PATH. 'public'. DS. 'resources\\'.$info->getSaveName();
 	    	// dump($upload_data);
 	    	model('Resource')->addResource($upload_data);
         	
-        	$this->success('上传成功'.$info->getSaveName()); 
+        	$this->success('上传成功'); 
 	    }else{
 	        // 上传失败获取错误信息
-	        $this->error('上传成功'.$file->getError());
+	        $this->error('上传失败'.$file->getError());
 	    }
 
 	}
-
+	// 生成资源上传的日期
 	private function getUploadData(){
 		$upload_data = [
 			'upload_date' => time(),

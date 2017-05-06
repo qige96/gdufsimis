@@ -26,7 +26,7 @@ class Login EXTENDS Base
             }
 
             
-            // 保存用户信息  bis是作用域
+            // 保存用户session信息 
             session('stu_id', $ret, 'inner');
             return $this->success('登录成功', url('user/index'));
 
@@ -60,6 +60,7 @@ class Login EXTENDS Base
 
 	// }
 
+    //退出登陆逻辑
 	public function logout() {
         // 清除session
         session(null, 'inner');

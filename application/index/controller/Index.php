@@ -5,8 +5,6 @@ class Index EXTENDS Controller
 {
     public function index()
     {
-    	// echo THINK_PATH;
-        return $this->fetch();
-
+        return $this->fetch(); //显示网站主页
     }
 }
