@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>editor</title>
+	<style type="text/css">
+		body, input, select, textarea {
+            font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
+        }
+
+        #editor {
+            height: 600px;
+        }
+	</style>
+	<link rel="stylesheet" type="text/css" href="__MD__/mdeditor.css">
+	<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+</head>
+<body>
+This is the index page of editor.<br/><a href="{:url('login/logout')}">退出登陆</a>
+<button id="publish">发布</button>
+title<input type="text" name="title"><br/>
+description<input type="text" name="description"><br/>
+<div id="editor"></div>
+
+</body>
+<script type="text/javascript" src="__MD__/mdeditor.js"></script>
+<script type="text/plain" style="display: none" id="md_preview">## 标题
+# 一级标题</div>
+## 二级标题</div>
+### 三级标题</div>
+#### 四级标题</div>
+##### 五级标题</div>
+###### 六级标题</div>
+## 无序列表
+- 1</div>
+- 2
+- 3
+* 1
+* 2
+* 3
+. 1
+. 2
+. 3
+## 有序列表
+1. 1</div>
+2. 2
+3. 3
+### 引用
+>1. a</div>
+>2. b</div>
+>33. c</div>
+>段落
+## 图片
+![前端路迹](http://www.qinshenxue.com/static/img/logo.jpg)
+## 链接
+[前端路迹](http://www.qinshenxue.com/)
+## 行内代码
+行内代码展示：`npm install`
+## 粗体
+粗体展示：**粗体**
+## 斜体
+斜体展示: *斜体*
+## 表格
+|1|2|3|4|
+|:--:|:--:|:--:|:--:|
+|1|2|3|4|
+|1|2|3|4|
+## 代码块
+``` css
+.mdeditor {
+    float: left;
+    width: 50%;
+    line-height: 1.5em;
+    resize: none;
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+```
+``` xml
+<ul class="mdeditor-ol">
+    <li>原创markdown编辑器，基于textarea，同步预览html，不依赖任何插件，使用简单。</li>
+</ul>
+```
+``` javascript
+var a=1,b=2; // 注释
+function test(){
+	return "原创markdown编辑器，基于textarea，同步预览html，不依赖任何插件，使用简单。";
+}
+```
+## 内嵌页（自定义语法，私有语法）
+$[200](about:blank)
+</script>
+
+<script type="text/javascript">
+	var editor = mdeditor({
+		id: "editor",
+		placeholder: "markdown editor"
+	});
+	editor.setMarkdown(document.getElementById('md_preview').innerHTML);
+	
+	var btn = document.getElementById('publish');
+	btn.onclick = function () {
+		// body...
+		var title = document.getElementsByName('title')[0].value;
+		var description = document.getElementsByName('description')[0].value;
+		var content = editor.getHTML();
+		console.log(title);
+		console.log(description);
+		console.log(content);
+
+		var article_data = {
+			title: title,
+			description: description,
+			content: content
+		};
+		$.post("../index/article/addArticle", article_data, function(data, status){
+			alert(status+"\n"+data);
+		});
+	}
+</script>
+</html>

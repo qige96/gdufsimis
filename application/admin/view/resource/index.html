@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>resource</title>
+</head>
+<body>
+This is the admin index page of the resource community.
+<form method="post" action="resource/updateResourceInfo">
+	<h3>update</h3>
+	resource_id<input type="text" name="resource_id">
+	title<input type="text" name="title">
+	description<input type="text" name="description">
+	<input type="submit" name="submit">
+</form>
+
+<form method="post" action="resource/deleteResource">
+	<h3>Delete</h3>
+	resource_id<input type="text" name="resource_id">
+	<input type="submit" name="submit">
+</form>
+</body>
+</html>
