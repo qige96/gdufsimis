@@ -13,7 +13,7 @@ class Resource extends Model
 
 	public function getAllResourceInfo()
 	{
-		return $this->find();
+		return $this->select();
 	}
 
 	public function addResource($data)
@@ -34,6 +34,6 @@ class Resource extends Model
 	public function getDownloadLink($resource_id){
 		return $this->where('resource_id', $resource_id)
 			->field('file_path')
-			->select();
+			->find();
 	}
 }

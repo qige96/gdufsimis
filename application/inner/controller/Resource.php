@@ -5,6 +5,10 @@ class Resource EXTENDS Base
 {
 
 	public function index(){
+		// $all_resource_info = json_encode($this->getAllResourceInfo());
+		$all_resource_info = $this->getAllResourceInfo();
+		$this->assign('all_resource_info', $all_resource_info);
+		// echo $all_resource_info;
 		return $this->fetch();//显示资源社区主页
 	}
 
@@ -27,8 +31,10 @@ class Resource EXTENDS Base
 	public function download()
 	{
 		$resource_id = input('resource_id');
+		dump($resource_id);
 		$download_link = model('Resource')->getDownloadLink($resource_id);
-		$file = $download_link[0]['file_path'];
+		dump($download_link);
+		$file = $download_link['file_path'];
 		header('content-disposition:attachment; filename='.basename($file));
 		header('content-length:'.filesize($file));
 
@@ -60,7 +66,8 @@ class Resource EXTENDS Base
 	// 生成资源上传的日期
 	private function getUploadData(){
 		$upload_data = [
-			'upload_date' => time(),
+			'contributor' => session('stu','', 'inner')['nick_name'],
+			'upload_date' => date('Y-m-d'),
 			'download_times' => 0,
 		];
 		return $upload_data;

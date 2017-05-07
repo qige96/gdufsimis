@@ -27,13 +27,13 @@ class Login EXTENDS Base
 
             
             // 保存用户session信息 
-            session('stu_id', $ret, 'inner');
+            session('stu', $ret, 'inner');
             return $this->success('登录成功', url('user/index'));
 
 
         }else {
             // 获取session
-            $stu_id = session('stu_id', '', 'inner');
+            $stu_id = session('stu', '', 'inner');
             if($stu_id ) {
                 return $this->redirect(url('user/index'));
             }

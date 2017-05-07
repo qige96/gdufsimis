@@ -11,7 +11,7 @@ Login、User、Resource、Topic、Editor等类会继承这个类
 */
 class Base EXTENDS Controller
 {
-	public $stu_id;
+	public $stu;
 	public function _initialize()//一个自动调用方法
 	{
 		// 若用户未曾登陆，则重定向到登陆界面
@@ -22,16 +22,16 @@ class Base EXTENDS Controller
 
 	// 检测用户是否已经登陆过
 	public function isLogin(){
-		$stu_id = $this->getLoginStuId();
-		if($stu_id)
+		$stu = $this->getLoginStuId();
+		if($stu)
 			return true; //若存在session信息，则证明用户曾登陆过
 		return false;    //若不存在session信息，则说明用户未曾登陆
 	}
 	
 	// 获取登陆登陆用户的session信息
 	public function getLoginStuId(){
-		if(!$this->stu_id)
-			$this->stu_id = session('stu_id', '', 'inner');//获取session信息
-		return $this->stu_id;
+		if(!$this->stu)
+			$this->stu = session('stu', '', 'inner');//获取session信息
+		return $this->stu;
 	}
 }

@@ -14,5 +14,14 @@ This is the index page of the resource community.<br/><a href="{:url('login/logo
 
 <a href="download/3">下载3</a>
 
+{volist name="all_resource_info" id="item"}
+
+	{$item.resource_id}<br/>
+	{$item.title}<br/>
+	{$item.description}<br/>
+	<a href="resource/download/resource_id/{$item.resource_id}">下载</a><br/>
+	<br/>
+{/volist}
+
 </body>
 </html>

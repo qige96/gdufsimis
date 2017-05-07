@@ -26,15 +26,15 @@ return [
     // 'admin/user'=>['admin/Uer/index',['method'=>'get'],['user'=>'\w+']],
     // 'admin/topic'=>['admin/Topic/index',['method'=>'get'],['topic'=>'\w+']],
 
-    'download/:resource_id' => [
-        'inner/Resource/download', ['method' => 'get'], ['resource_id' => '\d+'],
-    ],
-    'api/get_resource_info/:resource_id' => [
-        'inner/Resource/getResourceInfo', ['method' => 'get'], ['resource_id'=>'\d+'],
-    ],
-    'api/get_all_resource_info' =>[
-        'inner/Resource/getAllResourceInfo', ['method' => 'get'], 
-    ],
+    // 'resource/download/:resource_id' => [
+    //     'inner/Resource/download', ['method' => 'get'], ['resource_id' => '\d+'],
+    // ],
+    // 'api/get_resource_info/:resource_id' => [
+    //     'inner/Resource/getResourceInfo', ['method' => 'get'], ['resource_id'=>'\d+'],
+    // ],
+    // 'api/get_all_resource_info' =>[
+    //     'inner/Resource/getAllResourceInfo', ['method' => 'get'], 
+    // ],
     // 'api/add_article' => [
     //     'index/Article/addArticle', ['method' => 'post'], 
     // ]
