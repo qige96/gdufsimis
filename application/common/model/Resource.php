@@ -13,7 +13,7 @@ class Resource extends Model
 
 	public function getAllResourceInfo()
 	{
-		return $this->select();
+		return $this->paginate('2');
 	}
 
 	public function addResource($data)
