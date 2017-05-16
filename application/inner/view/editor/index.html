@@ -97,6 +97,10 @@ $[200](about:blank)
 		placeholder: "markdown editor"
 	});
 	editor.setMarkdown(document.getElementById('md_preview').innerHTML);
+
+	function redirect(){
+		location = "{:url('index/index/index')}";
+	}
 	
 	var btn = document.getElementById('publish');
 	btn.onclick = function () {
@@ -114,7 +118,8 @@ $[200](about:blank)
 			content: content
 		};
 		$.post("../index/article/addArticle", article_data, function(data, status){
-			alert(status+"\n"+data);
+			alert("文章上传结果："+status+"\n"+"点击确定跳转到主页。");
+			redirect();
 		});
 	}
 </script>

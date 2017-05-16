@@ -4,10 +4,14 @@ use think\Controller;
 class Article EXTENDS Controller
 {
 	public function index(){
+		$article_id = input('article_id');
+		$article_data = $this->getArticle($article_id);
+		$this->assign('article_data',$article_data);
+		$this->assign('article_id',$article_id);
 		return $this->fetch(); //显示文章内容页面
 	}
 
-	// 获取文章信息，返回json给前端，用于网站主页生产文章列表
+	// 获取文章信息，返回json给前端，用于网站生成文章内容页
 	public function getArticle()
 	{
 		$article = model('Article');
@@ -40,9 +44,9 @@ class Article EXTENDS Controller
     	//此方法还需要修改
     	$res = $article->addArticle($article_data);
     	if($res)
-    		return '文章发布成功！';
+    		$this->success('文章发布成功！');
     	else 
-    		return '文章发布失败！';
+    		$this->error('文章发布失败！');
     	
     }
 

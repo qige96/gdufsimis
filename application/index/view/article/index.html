@@ -2,8 +2,19 @@
 <html>
 <head>
 	<title>article</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../__MD__/mdeditor.css">
+
 </head>
 <body>
-This is the content page of certain article.
+This is the content page of certain article.<br/>
+{$article_id}<br/>
+
+<h3 id="title">{$article_data.title}</h3>
+<div class="mdeditor-html">
+<div id="content">{$article_data.content}</div>
+</div>
+<div id="author">{$article_data.author}</div>
+<div id="date">{$article_data.create_date}</div>
 </body>
 </html>

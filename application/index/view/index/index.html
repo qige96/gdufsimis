@@ -2,10 +2,27 @@
 <html>
 <head>
 	<title>index</title>
+	<style type="text/css">
+		.pagination li{float: left; margin: 20px; list-style: none;}
+	</style>
 </head>
 <body>
 hello world!
-<a href="{:url('inner/login/index')}">登陆</a>
+<a href="{:url('inner/login/index')}">登陆</a> <br/>
+
+<div>
+	<ul>
+		{volist name='articles_info' id='article'}
+		    <li> 
+		    	{$article.article_id}
+		    	<a href="index/article/?article_id={$article.article_id}">{$article.title}</a>
+				{$article.description}
+		    </li>
+		{/volist}
+	</ul>
+
+</div>
+{$page}
 </form>
 </body>
 </html>

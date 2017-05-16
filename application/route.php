@@ -45,4 +45,5 @@ return [
     //     'admin/Resource/deleteResource', ['method' => 'post'], ['resource_id'=>'\d+'],
     // ],
 
+
 ];
