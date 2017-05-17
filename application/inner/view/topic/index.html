@@ -5,5 +5,15 @@
 </head>
 <body>
 This is the index page of the topic community.<a href="{:url('login/logout')}">退出登陆</a>
+<br/>
+{volist name="all_topics" id="topic"}
+	{$topic.topic_id}
+	<a href="{:url('inner/topic/getDetail')}/topic_id/{$topic.topic_id}">{$topic.title}</a>
+	<!-- {$topic.description} -->
+	{$topic.raiser}
+	{$topic.date}
+	<br/>
+{/volist}
+{$page}
 </body>
 </html>

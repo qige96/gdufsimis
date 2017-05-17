@@ -4,6 +4,25 @@
 	<title>detail</title>
 </head>
 <body>
-This is the page of certain topic.
+<h2>This is the page of topic {$topic_data.topic_id}.</h2>
+{$topic_data.title}<br/>
+{$topic_data.description}<br/>
+{$topic_data.raiser}<br/>
+{$topic_data.date}<br/>
+_________________________________________________________________
+<br/>
+{volist name="responses_data" id="response"}
+	{$response.responder}<br/>
+	{$response.response_body}<br/>
+	- - - - - - - - - - <br/>
+{/volist}
+
+<div id="response_editor">
+	<form action="{:url('inner/topic/addResponse')}" method="post">
+		<textarea rows="10" cols="80" name="response_body"></textarea>
+		<input type="hidden" name="topic_id" value="{$topic_data.topic_id}">
+		<input type="submit" name="">
+	</form>
+</div>
 </body>
 </html>
