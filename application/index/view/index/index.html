@@ -4,6 +4,7 @@
 	<title>index</title>
 	<style type="text/css">
 		.pagination li{float: left; margin: 20px; list-style: none;}
+
 	</style>
 </head>
 <body>
@@ -15,7 +16,7 @@ hello world!
 		{volist name='articles_info' id='article'}
 		    <li> 
 		    	{$article.article_id}
-		    	<a href="index/article/?article_id={$article.article_id}">{$article.title}</a>
+		    	<a href="{:url('index/article/index')}/article_id/{$article.article_id}">{$article.title}</a>
 				{$article.description}
 		    </li>
 		{/volist}

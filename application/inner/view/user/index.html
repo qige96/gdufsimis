@@ -5,14 +5,16 @@
 </head>
 <body>
 This is the index page of certain user.<br/>
+<a href="{:url('login/logout')}">退出登陆</a><br/>
+{include file="../application/inner/view/common/navbar.html"}<br/>
 <form method="post" action="updateInfo">
-stu_id<input type="text" name="stu_id"><br/>
-
+<input type="hidden" name="stu_id" value="{$stu.stu_id}"><br/>
 password<input type="text" name="password"><br/>
 confirm password<input type="text" name="confirm_password"><br/>
-nick_name<input type="text" name="nick_name"><br/>
-signature<input type="text" name="signature">
+nick_name<input type="text" name="nick_name" value="{$stu.nick_name}"><br/>
+signature<input type="text" name="signature" value="{$stu.signature}">
 <input type="submit" name="submit"><br/>
+</form>
 <a href="{:url('login/logout')}">退出登陆</a>
 </body>
 </html>

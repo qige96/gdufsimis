@@ -242,15 +242,3 @@
 }
 
 
-
-body, input, select, textarea {
-            font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
-        }
-
-        #editor {
-            height: 600px;
-        }
-
-        .mdeditor-html{
-            width: 770px;
-        }

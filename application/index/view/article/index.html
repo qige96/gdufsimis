@@ -3,18 +3,40 @@
 <head>
 	<title>article</title>
 	<meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../__MD__/mdeditor.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/../mdeditor/mdeditor.css">
+	<style type="text/css">
+		body{margin: 0; padding: 0;}
+		body, input, select, textarea {
+        	font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", stylesheeteiti, "华文细黑", sans-serif;
+        }
 
+        #editor {
+            height: 600px;
+        }
+
+        .mdeditor-html{
+            width: 660px;
+        }
+        #editor {
+            height: 600px;
+        }
+        .wrap{
+        	margin: 0 auto;
+        	width: 770px;
+		}
+	</style>
 </head>
 <body>
+<div class="wrap">
 This is the content page of certain article.<br/>
-{$article_id}<br/>
-
+<a href="{:url('index/index/index')}">返回</a>
 <h3 id="title">{$article_data.title}</h3>
 <div class="mdeditor-html">
 <div id="content">{$article_data.content}</div>
 </div>
+<br/>
 <div id="author">{$article_data.author}</div>
 <div id="date">{$article_data.create_date}</div>
+</div>
 </body>
 </html>

@@ -3,26 +3,38 @@
 <head>
 	<title>editor</title>
 	<style type="text/css">
+		/*body, input, select, textarea {
+            font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
+        }*/
+
 		body, input, select, textarea {
             font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
-        }
+	        }
 
-        #editor {
-            height: 600px;
-        }
+	        #editor {
+	            height: 600px;
+	        }
+
+	        .mdeditor-html{
+	            width: 660px;
+	        }
+	        #editor {
+	            height: 600px;
+	        }
 	</style>
-	<link rel="stylesheet" type="text/css" href="__MD__/mdeditor.css">
+	<link rel="stylesheet" type="text/css" href="../__MD__/mdeditor.css">
 	<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
 </head>
 <body>
-This is the index page of editor.<br/><a href="{:url('login/logout')}">退出登陆</a>
+This is the index page of editor.<br/><a href="{:url('login/logout')}">退出登陆</a><br/>
+{include file="../application/inner/view/common/navbar.html"}<br/>
 <button id="publish">发布</button>
 title<input type="text" name="title"><br/>
 description<input type="text" name="description"><br/>
 <div id="editor"></div>
 
 </body>
-<script type="text/javascript" src="__MD__/mdeditor.js"></script>
+<script type="text/javascript" src="../__MD__/mdeditor.js"></script>
 <script type="text/plain" style="display: none" id="md_preview">## 标题
 # 一级标题</div>
 ## 二级标题</div>

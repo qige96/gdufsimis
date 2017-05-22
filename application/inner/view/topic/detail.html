@@ -5,10 +5,12 @@
 </head>
 <body>
 <h2>This is the page of topic {$topic_data.topic_id}.</h2>
+<a href="{:url('inner/topic/index')}">返回</a><br/><br/>
 {$topic_data.title}<br/>
 {$topic_data.description}<br/>
 {$topic_data.raiser}<br/>
 {$topic_data.date}<br/>
+
 _________________________________________________________________
 <br/>
 {volist name="responses_data" id="response"}

@@ -66,6 +66,8 @@ class Topic EXTENDS Base
 		$responses_data = model('TopicResponse')->getResponses($topic_id);
 		$this->assign('topic_data',$topic_data);
 		$this->assign('responses_data',$responses_data);
+		$number = 1234;
+		$this->assign('var',$number);
 		return $this->fetch('detail');
 	}
 }
