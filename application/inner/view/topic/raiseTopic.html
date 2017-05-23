@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>raise a topic</title>
+</head>
+<body>
+To raise a topic.<br/>
+{include file="../application/inner/view/common/navbar.html"}
+<br/>
+<form method="post" action="{:url('inner/topic/addTopic')}">
+	title<input type="text" name="title"><br/>
+	description<textarea rows="10" cols="60" name="description"></textarea><br/>
+	<input type="submit" name="">
+</form>
+</body>
+</html>

@@ -17,6 +17,7 @@ class Resource EXTENDS Base
 	{
 		$resource_id = input('resource_id');
 		$resource_data = model('Resource')->getResourceInfo($resource_id);
+
 		return $resource_data;
 	}
 
@@ -24,6 +25,10 @@ class Resource EXTENDS Base
 	public function getAllResourceInfo()
 	{
 		$resource_data = model('Resource')->getAllResourceInfo();
+
+		$page = $resource_data->render();
+		$this->assign('page', $page);
+
 		return $resource_data;
 	}
 
