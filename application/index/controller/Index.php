@@ -11,6 +11,6 @@ class Index EXTENDS Controller
     	$page = $articles_info->render();
     	$this->assign('articles_info',$articles_info);
     	$this->assign('page',$page);
-
+    	return $this->fetch();
     }
 }
