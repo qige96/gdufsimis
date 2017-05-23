@@ -5,6 +5,7 @@ use think\Model;
 
 class Topic extends Model
 {
+
 	public function getAllTopicsPagination()
 	{
 		return $this->paginate();

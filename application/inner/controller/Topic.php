@@ -4,6 +4,7 @@ use think\Controller;
 class Topic EXTENDS Base
 {
 	public function index(){
+
 		$all_topics = $this->getAllTopicsPagination();
 		$page = $all_topics->render();
 		$this->assign('all_topics',$all_topics);
@@ -70,4 +71,5 @@ class Topic EXTENDS Base
 		$this->assign('var',$number);
 		return $this->fetch('detail');
 	}
+
 }

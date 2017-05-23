@@ -19,6 +19,8 @@ class Article extends Model
 	public function getAllArticleInfo()
 	{
 		return $this->field('article_id,title,description')
+
 					->paginate('3');
+
 	}
 }

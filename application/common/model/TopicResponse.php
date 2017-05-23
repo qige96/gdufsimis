@@ -5,6 +5,7 @@ use think\Model;
 
 class TopicResponse extends Model
 {
+
 	public function getResponses($topic_id)
 	{
 		return $this->where('topic_id', $topic_id)
@@ -15,4 +16,5 @@ class TopicResponse extends Model
 	{
 		return $this->insert($response_data);
 	}
+
 }

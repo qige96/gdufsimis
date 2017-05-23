@@ -5,8 +5,10 @@ class User EXTENDS Base
 {
 	
 	public function index(){
+
 		$stu = session('stu', '', 'inner');
 		$this->assign('stu',$stu);
+
 		return $this->fetch(); //显示用户猪心主页
 	}
 
@@ -26,12 +28,14 @@ class User EXTENDS Base
 		if($data['password'] != md5Process('')) //判断密码框是否为空
 			if($data['password'] != $data['confirm_password'])
 				$this->error('两次输入的密码不一致！');
+
 		$user = model('User');
 		$res = $user->updateUser($data);
 		if($res)
 			$this->success('更新成功！');
 		else 
 			$this->error('更新失败！'.' 更新前后并无差异·····');
+
 	}
 
 }
