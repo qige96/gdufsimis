@@ -14,7 +14,7 @@ This is the index page of the resource community.<br/>
 <a href="{:url('login/logout')}">退出登陆</a>
 {include file="../application/inner/view/common/navbar.html"}<br/>
 
-<form method="post" action="resource/upload" enctype="multipart/form-data" >
+<form method="post" action="{:url('inner/Resource/upload')}" enctype="multipart/form-data" >
 	title<input type="text" name="title"><br/>
 	description<input type="text" name="description"><br/>
 	file<input type="file" name="file"><br/>

@@ -135,7 +135,7 @@ $[200](about:blank)
 			description: description,
 			content: content
 		};
-		$.post("../index/article/addArticle", article_data, function(data, status){
+		$.post("{:url('index/article/addArticle')}", article_data, function(data, status){
 
 			alert("文章上传结果："+status+"\n"+"点击确定跳转到主页。");
 			redirect();
