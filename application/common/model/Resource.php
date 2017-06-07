@@ -13,9 +13,7 @@ class Resource extends Model
 
 	public function getAllResourceInfo()
 	{
-
 		return $this->paginate('2');
-
 	}
 
 	public function addResource($data)
@@ -37,5 +35,12 @@ class Resource extends Model
 		return $this->where('resource_id', $resource_id)
 			->field('file_path')
 			->find();
+	}
+
+	public function downloadOnce($resource_id)
+	{
+		$download_times = $this->getResourceInfo($resource_id)['download_times'];
+		return $this->where('resource_id', $resource_id)
+					->update(['download_times' => $download_times+1]);	
 	}
 }

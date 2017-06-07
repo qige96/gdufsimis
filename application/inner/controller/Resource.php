@@ -35,15 +35,20 @@ class Resource EXTENDS Base
 	// 下载资源的逻辑，根据资源id返回资源
 	public function download()
 	{
+		$resource = model('Resource');
 		$resource_id = input('resource_id');
-		dump($resource_id);
-		$download_link = model('Resource')->getDownloadLink($resource_id);
-		dump($download_link);
+		// dump($resource_id);
+		$download_link = $resource->getDownloadLink($resource_id);
+		// dump($download_link);
 		$file = $download_link['file_path'];
+		$resource->downloadOnce($resource_id);
+		Header("Content-type: application/octet-stream"); 
+        Header("Accept-Ranges: bytes"); 
 		header('content-disposition:attachment; filename='.basename($file));
 		header('content-length:'.filesize($file));
 
 		readfile($file);
+
 	}
 
 	// 资源上传逻辑
@@ -59,6 +64,7 @@ class Resource EXTENDS Base
 	    	$upload_data['description'] = input('description');
 	    	$upload_data['file_path'] = ROOT_PATH. 'public'. DS. 'resources\\'.$info->getSaveName();
 	    	// dump($upload_data);
+	    	$upload_data['type'] = $exten[count($exten = explode('.', $upload_data['file_path'])) - 1];
 	    	model('Resource')->addResource($upload_data);
         	
         	$this->success('上传成功'); 
