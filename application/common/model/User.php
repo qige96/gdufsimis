@@ -5,6 +5,11 @@ use think\Model;
 
 class User extends Model
 {
+	public function getUserInfoByStuId($stu_id)
+	{
+		return $this->where('stu_id', $stu_id)->find();
+	}
+
 	public function getUserPassword($user_id){
 		return $this->where('stu_id', $user_id)
 					->field('password')

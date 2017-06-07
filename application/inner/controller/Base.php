@@ -1,7 +1,6 @@
 <?php
 namespace app\inner\controller;
 use think\Controller;
-
 /*
 实现会话机制的基础类
 Login、User、Resource、Topic、Editor等类会继承这个类
@@ -16,8 +15,9 @@ class Base EXTENDS Controller
 	{
 		// 若用户未曾登陆，则重定向到登陆界面
 		$isLogin = $this->isLogin();
-		if(!$isLogin)
+		if(!$isLogin){
 			return $this->redirect(url('login/index'));
+		}
 	}
 
 	// 检测用户是否已经登陆过

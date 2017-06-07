@@ -6,7 +6,8 @@ class User EXTENDS Base
 	
 	public function index(){
 
-		$stu = session('stu', '', 'inner');
+		$stu_id = session('stu', '', 'inner')['stu_id'];
+		$stu = model('User')->getUserInfoByStuId($stu_id);
 		$this->assign('stu',$stu);
 
 		return $this->fetch(); //显示用户猪心主页

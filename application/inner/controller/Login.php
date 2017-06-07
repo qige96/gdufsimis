@@ -1,6 +1,8 @@
 <?php
 namespace app\inner\controller;
+use think\Cookie;
 use think\Controller;
+
 class Login EXTENDS Base
 {
 	private $user;
@@ -17,48 +19,38 @@ class Login EXTENDS Base
             $ret = $this->user->get(['stu_id'=>$data['stu_id']]);
             // dump($ret);
 
-            if(!$ret ) {
+            if(!$ret ) 
                 $this->error('改用户不存在，获取用户未被审核通过');
-            }
-
-            if($ret->password != md5Process($data['password'])) {
+            if($ret->password != md5Process($data['password'])) 
                 $this->error('密码不正确');
-            }
 
-            
+            // 保存用户cookie信息
+            if(array_key_exists('remember', $data)){
+                cookie('stu_id', $data['stu_id'], 3600*2400*7);
+                cookie('password', $data['password'], 3600*2400*7);
+            }else {
+                cookie('stu_id', null);
+                cookie('password', null);
+            }
             // 保存用户session信息 
             session('stu', $ret, 'inner');
-            return $this->success('登录成功', url('user/index'));
-
+            return $this->success('登录成功', url('user/index'));    
 
         }else {
             // 获取session
             $stu_id = session('stu', '', 'inner');
-            if($stu_id ) {
+            if($stu_id ) 
                 return $this->redirect(url('user/index'));
+            if(Cookie::has('stu_id')){
+                $this->assign('stu_id_cookie',cookie('stu_id'));
+                $this->assign('password_cookie',cookie('password'));
+            }else{
+                $this->assign('stu_id_cookie','');
+                $this->assign('password_cookie','');
             }
             return $this->fetch();
         }
 	}
-
-	// public function logincheck(){
-	// 	$posted_stu_id = input('stu_id');
-	// 	$posted_password = input('password');
-
-	// 	if(!$posted_stu_id)
-	// 		$this->error('账号不能为空！');
-	// 	if(!$posted_password)
-	// 		$this->error('密码不能为空！');
-
-	// 	$user_password = $this->user->getUserPassword($posted_stu_id)['password'];
-	// 	if(md5Process($posted_password) == $user_password){
-	// 		session('stu_id',$posted_stu_id, 'inner');
-	// 		$this->success( "登陆成功!", url("user/index"));
-	// 	}else {
-	// 		$this->error('账号与密码不一致！');
-	// 	}
-
-	// }
 
     //退出登陆逻辑
 	public function logout() {
