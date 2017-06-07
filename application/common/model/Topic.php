@@ -26,5 +26,9 @@ class Topic extends Model
 		return $this->allowField(true)->insert($topic_data);
 	}
 
+	public function deleteTopic($topic_id)
+	{
+		return $this->where('topic_id', $topic_id)->delete();
+	}
 
 }

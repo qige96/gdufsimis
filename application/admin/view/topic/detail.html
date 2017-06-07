@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>details</title>
+	<meta charset="utf-8">
+	<script src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+	<script>
+		$(document).ready(function (){
+			
+		});
+		function delete_response(response_id){
+			res = confirm("确定删除？");
+			if(res)
+				_delete_response(response_id);
+		}
+		function _delete_response(response_id){
+				$.post("{:url('admin/topic/deleteResponse')}", {'response_id':response_id});
+				location.reload() 
+			}
+	</script>
+</head>
+<body>
+<h1>下面是话题：的所有答复。</h1>
+{volist name="responses" id="response"}
+	{$response.id} 
+	{$response.responder} 
+	{$response.response_date} 
+	{$response.response_body|substr=0,50}...
+	<button onclick="delete_response({$response.id})">删除</button>
+	<br/>
+{/volist}
+</body>
+</html>

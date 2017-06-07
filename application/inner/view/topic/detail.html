@@ -4,22 +4,9 @@
 	<title>detail</title>
 
 	<link href="__STATIC__/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="__STATIC__/umeditor/third-party/jquery.min.js"></script>
-    <script type="text/javascript" src="__STATIC__/umeditor/third-party/template.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/umeditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="__STATIC__/umeditor/umeditor.min.js"></script>
-    <script type="text/javascript" src="__STATIC__/umeditor/lang/zh-cn/zh-cn.js"></script>
-    <script type="text/javascript">
-    $(function(){
-        window.um = UM.getEditor('myEditor', {
-        	/* 传入配置参数,可配参数列表看umeditor.config.js */
-            // toolbar: ['undo redo | bold italic underline', 'insertcode']
-            
-        });
-        var response_html = um.getContent();
-        $("#response_content").val(response_html);
-    });
-</script>
+	<script type="text/javascript" src="__STATIC__/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" src="__STATIC__/ueditor/ueditor.all.js"></script>
+
 </head>
 <body>
 <h2>This is the page of topic {$topic_data.topic_id}.</h2>
@@ -40,15 +27,33 @@ _________________________________________________________________
 <div id="response_editor">
 	<form action="{:url('inner/topic/addResponse')}" method="post">
 		<!-- <textarea rows="10" cols="80" name="response_body"></textarea> -->
-		<input type="hidden" name="response_body" id="response_content">
+		<!-- <input type="hidden" name="response_body" id="response_content" > -->
 		
 		<input type="hidden" name="topic_id" value="{$topic_data.topic_id}">
-		<input type="submit" name="">
+		<script id="myeditor" name="response_body" type="text/plain"></script>
+	    <script type="text/javascript">
+	        var ue = UE.getEditor('myeditor',{ 
+	        initialFrameWidth : 600, 
+	        initialFrameHeight: 220 ,
+	    });
+	    </script>
+
+	    <input type="submit" name="">
 	</form>
-	<script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
-		    这里我可以写一些输入提示
-	</script>
+
+
 </div>
 
 </body>
+
+	<script type="text/plain" id="myEditor" style="width:600px;height:240px;">
+		    <!-- 这里我可以写一些输入提示 -->
+	</script>
+	<script >
+// <!-- 		um = UM.getEditor('myEditor');
+// 		$("#123").click(function(){
+// 			txt = $("#response_content").val();
+// 			alert(txt);
+// 		}); -->
+	</script>
 </html>

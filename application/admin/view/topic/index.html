@@ -2,8 +2,40 @@
 <html>
 <head>
 	<title>topic</title>
+	<style type="text/css">
+		ul button{
+			cursor: pointer;
+		}
+	</style>
+	<script src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+	<script>
+		$(document).ready(function (){
+			
+		});
+		function delete_topic(topic_id){
+			res = confirm("确定删除？");
+			if(res)
+				_delete_topic(topic_id);
+		}
+		function _delete_topic(topic_id){
+				$.post("{:url('admin/topic/deleteTopic')}", {'topic_id':topic_id});
+				location.reload() 
+			}
+	</script>
 </head>
 <body>
 This is the admin index page of the topic community.
+{volist name='topics' id = 'topic'}
+<ul>
+    <li>
+	    {$topic.topic_id} 
+	    <a href="{:url('admin/topic/detail')}/topic_id/{$topic.topic_id}">{$topic.title}</a> 
+	    {$topic.raiser} 
+	    {$topic.date} 
+	    <button onclick="delete_topic({$topic.topic_id})">删除</button>
+    </li>
+</ul>
+{/volist}
+{$page}
 </body>
 </html>
