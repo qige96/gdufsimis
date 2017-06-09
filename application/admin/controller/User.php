@@ -1,7 +1,7 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-class User EXTENDS Controller
+class User EXTENDS Base
 {
 
 	private $user;

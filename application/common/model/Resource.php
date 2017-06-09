@@ -16,6 +16,11 @@ class Resource extends Model
 		return $this->paginate('2');
 	}
 
+	public function getAllResourceInfolist()
+	{
+		return $this->select();
+	}
+
 	public function addResource($data)
 	{
 		return $this->save($data);

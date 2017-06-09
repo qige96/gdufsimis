@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 
-class Topic EXTENDS Controller
+class Topic EXTENDS Base
 {
 	private $topic ;
 	private $topic_response ;

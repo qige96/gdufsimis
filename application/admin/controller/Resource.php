@@ -1,7 +1,7 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-class Resource EXTENDS Controller
+class Resource EXTENDS Base
 {
 
 	private $resource;
@@ -11,6 +11,8 @@ class Resource EXTENDS Controller
 	}
 
 	public function index(){
+		$resources = $this->resource->getAllResourceInfolist();
+		$this->assign('resources',$resources);
 		return $this->fetch();
 	}
 

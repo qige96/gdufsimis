@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin index</title>
+	<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#quit").click(quit);
+		});
+		function quit(){
+			var res = confirm("你正在放弃自己的管理员权限，确定吗？");
+			if(res)
+				_quit("{$admin_id}");
+		}
+		function _quit(admin_id){
+			$.post("{:url('admin/quit')}",{"admin_id":admin_id});
+			window.location = "{:url('login/logout')}";
+		}
+	</script>
+</head>
+<body>
+<h1>管理管理员</h1>
+<a href="{:url('login/logout')}">退出登陆</a>
+<br/>
+<form method="post" action="{:url('admin/add')}">
+	<h3>新增管理员</h3>
+	admin_id <input type="text" name="admin_id"><br/>
+	password <input type="password" name="password"><br/>
+	confirm_password <input type="password" name="confirm_password">
+	<input type="submit" name="">
+</form>
+<br/>
+	
+<form method="post" action="{:url('admin/update')}">
+	<h3>修改密码</h3>
+	<input type="hidden" name="admin_id" value="{$admin_id}">
+	new_password <input type="password" name="password"><br/>
+	confirm_password <input type="password" name="confirm_password">
+	<input type="submit" name="">
+</form>
+
+<br/>
+<button id="quit">放弃管理员权限</button>
+
+
+</body>
+</html>
