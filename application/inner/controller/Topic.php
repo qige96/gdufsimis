@@ -37,7 +37,7 @@ class Topic EXTENDS Base
 	{
 		if(request()->isPost()){
 			$topic_data = input("post.");
-			$topic_data['raiser'] = session('stu', '', 'inner')['nick_name'];
+			$topic_data['raiser'] = session('stu', '', 'inner')['stu_id'];
 			$topic_data['date'] = date('Y-m-d H:i:s');
 			if( model('Topic')->addTopic($topic_data))
 				$this->success('话题发起成功');
@@ -51,7 +51,7 @@ class Topic EXTENDS Base
 	public function addResponse()
 	{
 		$responses_data = input('post.');
-		$responses_data['responder'] = session('stu', '', 'inner')['nick_name'];
+		$responses_data['responder'] = session('stu', '', 'inner')['stu_id'];
 		$responses_data['response_date'] = date('Y-m-d H:i:s');
 
 		if(model('TopicResponse')->addResponse($responses_data))

@@ -77,7 +77,7 @@ class Resource EXTENDS Base
 	// 生成资源上传的日期
 	private function getUploadData(){
 		$upload_data = [
-			'contributor' => session('stu','', 'inner')['nick_name'],
+			'contributor' => session('stu','', 'inner')['stu_id'],
 			'upload_date' => date('Y-m-d'),
 			'download_times' => 0,
 		];
