@@ -3,16 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>topic_discussion</title>
-<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/topic_discussion.css" />
-<script>
-	function raise(){
-		window.location = "{:url('inner/topic/raiseTopic')}";
-	}
-</script>
+<link rel=”stylesheet” type=”text/css” href=”__STATIC__/inner/css/topic_discussion.css”/> 
 </head>
 <body>
 <div class="banner">
-     {include file="../application/inner/view/common/navbar.html"}
+    <div class="nav">
+     <ul>
+       <li><a href="http://www.w3school.com.cn/">资源社区</a></li>
+       <li><a href="http://www.w3school.com.cn/">话题讨论<div class="selected"></div></a></li>
+       <li id="web_logo"><img src="__STATIC__/inner/images/web_logo.png" alt="web_logo"></li>
+       <li><a href="http://www.w3school.com.cn/">发布文章</a></li>
+       <li><a href="http://www.w3school.com.cn/">个人设置</a></li>
+     </ul>
+    </div>
 </div>
 <div class="middle">
 	<input class="button" type="button" value="发起话题" />

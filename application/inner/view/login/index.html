@@ -1,18 +1,49 @@
-<!DOCTYPE html>
-<html>
 <head>
-	<title>login</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<title><fmt:message key="login.title" /></title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/login.css"/>
+<script src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+<script type="text/javascript">
+    function back(){window.location="{:url('index/index/index')}";}
+</script>
 </head>
+
 <body>
-
-<form method="post" action="{:url('login/index')}">
-	user<input type="text" name="stu_id" value="{$stu_id_cookie}" placeholder="输入学号"><br/>
-	password<input type="password" name="password" value="{$password_cookie}"><br/>
-	<input type="checkbox" name="remember" value="true" >7天内记住密码<br/>
-	<input type="submit" name="submit"><br/>
-	
-</form>
-
-
+	<div class="banner">
+    	<div class="nav"id="web_logo"><img src="__STATIC__/inner/images/web_logo.png" alt="web_logo">
+    </div>
+    
+    <div class="oaContain oaContent">
+        <div class="oaRight">
+            <form method="post" action="{:url('login/index')}">
+            	<div class="layer" data-name="账号"><p align="left">账号</p></div>
+                <input class="oaInput oaText"  id="account" name="stu_id" value="{$stu_id_cookie}" placeholder="输入学号"/>
+                <div class="layer" data-name="密码"><p align="left">密码</p></div>
+                <input class="oaInput oaPwd" id="password" type="password" name="password" value="{$password_cookie}" />
+                <div class="oaRelea_pwd">
+                    <label class="oaRem_password"><input type="checkbox" id="oaRem_password" name="remember" value="true"/> 7天内记住密码</label>
+                </div>
+                <input type="submit" name="submit" class="oaLogin_btn"><br/>
+                <br/>
+                <input class="oaLogin_btn" type="button" value="返回" onclick="back()"><br/>
+                <!-- <button type="button" class="oaLogin_btn">确认</button> -->
+            </form>
+        </div>
+    </div>
+<div class="middle">
+	<div id="main">
+    
+	</div>
+</div>  
+    <div id="foot">
+        <div id="foot-up">
+          <div id="imis_logo">
+                <img src="__STATIC__/inner/images/imis_logo.png">
+            </div>
+          <div id="slogan">信管出击，天下无敌</div>
+          <div id="link"><a href="http://www.w3school.com.cn">班级文化</a> | <a href="http://www.w3school.com.cn">班委成员</a> | <a href="http://www.w3school.com.cn">logo下载</a></div>
+        </div>
+        <div id="foot-bottom">Copyright © 2017 网站建设作业</div>
+    </div>  
 </body>
 </html>

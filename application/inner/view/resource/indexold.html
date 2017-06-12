@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>resource</title>
+
+	<style type="text/css">
+		li{list-style: none;}
+		.pagination li{float: left; margin: 20px;}
+	</style>
+</head>
+<body>
+This is the index page of the resource community.<br/>
+<br/>
+<a href="{:url('login/logout')}">退出登陆</a>
+{include file="../application/inner/view/common/navbar.html"}<br/>
+
+<form method="post" action="{:url('inner/Resource/upload')}" enctype="multipart/form-data" >
+	title<input type="text" name="title"><br/>
+	description<input type="text" name="description"><br/>
+	file<input type="file" name="file"><br/>
+	<input type="submit" name="submit"><br/>
+</form>
+
+
+<!-- <a href="download/3">下载3</a> -->
+<ul>
+{volist name="all_resource_info" id="item"}
+<li>
+	{$item.resource_id}
+	{$item.title}
+	{$item.type}
+	{$item.description}
+	{$item.download_times}
+	<a href="{:url('inner/resource/download')}/resource_id/{$item.resource_id}">下载</a>
+	<br/>
+</li>
+{/volist}
+{$page}
+</ul>
+
+</body>
+</html>

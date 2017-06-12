@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>resource</title>
-
-	<style type="text/css">
-		li{list-style: none;}
-		.pagination li{float: left; margin: 20px;}
-	</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>resource</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/resource.css" /> 
 </head>
 <body>
-This is the index page of the resource community.<br/>
-<br/>
-<a href="{:url('login/logout')}">退出登陆</a>
-{include file="../application/inner/view/common/navbar.html"}<br/>
-
+<div class="banner">
+    {include file="../application/inner/view/common/navbar.html"}
+</div>
+<div class="middle">
 <form method="post" action="{:url('inner/Resource/upload')}" enctype="multipart/form-data" >
-	title<input type="text" name="title"><br/>
-	description<input type="text" name="description"><br/>
-	file<input type="file" name="file"><br/>
-	<input type="submit" name="submit"><br/>
-</form>
-
-
-<!-- <a href="download/3">下载3</a> -->
-<ul>
-{volist name="all_resource_info" id="item"}
-<li>
-	{$item.resource_id}
-	{$item.title}
-	{$item.type}
-	{$item.description}
-	{$item.download_times}
-	<a href="{:url('inner/resource/download')}/resource_id/{$item.resource_id}">下载</a>
-	<br/>
-</li>
-{/volist}
-{$page}
-</ul>
-
+    <div class="input_group">
+        <div class="layer" data-name="标题"><p align="left">标题</p></div>
+        <input id="title" type="text" name="title">
+        <input class="button" type="submit" value="发布资源" />
+    </div>
+    
+    <div class="input_group">
+        <div class="layer" data-name="文件"><p align="left">文件</p></div>
+        <input id="file" type="file" name="file">
+    </div>
+    <div class="input_group">
+    	<div class="layer" data-name="描述"><p align="left">描述</p></div>
+        <input id="description" type="text" name="description">
+    </div> 
+</form>   
+    <div class="outside_box">
+    {volist name="all_resource_info" id="item"}
+	    <ul class="box">
+	        <li class="left_box"><p id="dl_times">{$item.download_times}</p><p id="dl_text">本文下载次数</p></li>
+	        <li class="article">
+            	<div class="article_info">{$item.contributor} {$item.type}</div>
+	            <p class="title">{$item.title}</p>
+	            <p class="content">{$item.description}</p>
+            </li>
+	        <li class="right_box">
+            <a href="{:url('inner/resource/download')}/resource_id/{$item.resource_id}">
+	            <img class="download"src="__STATIC__/inner/images/download.png" alt="download">
+                </a></p>
+	        </li>
+	    </ul>
+	 {/volist}        
+	</div> 
+    <div id="pagination">
+        <ul id="pagination-flickr">
+            <!-- <li><a href=""><img class="last_page" src="__STATIC__/inner/images/last_page.png" alt="last_page"></a></li> -->
+            {$page}
+            <!-- <li><a href="?page=4"><img class="next_page" src="__STATIC__/inner/images/next_page.png" alt="next_page"></a></li> -->
+        </ul>
+    </div>
+</div>
+<div id="foot">
+    <div id="foot-up">
+      <div id="imis_logo">
+            <img src="__STATIC__/inner/images/imis_logo.png">
+        </div>
+      <div id="slogan">信管出击，天下无敌</div>
+      <div id="link"><a href="http://www.w3school.com.cn">班级文化</a> | <a href="http://www.w3school.com.cn">班委成员</a> | <a href="http://www.w3school.com.cn">logo下载</a></div>
+    </div>
+    <div id="foot-bottom">Copyright © 2017 网站建设作业</div>
+</div>    
 </body>
 </html>

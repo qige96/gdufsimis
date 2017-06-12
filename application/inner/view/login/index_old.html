@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+</head>
+<body>
+
+<form method="post" action="{:url('login/index')}">
+	user<input type="text" name="stu_id" value="{$stu_id_cookie}" placeholder="输入学号"><br/>
+	password<input type="password" name="password" value="{$password_cookie}"><br/>
+	<input type="checkbox" name="remember" value="true" >7天内记住密码<br/>
+	<input type="submit" name="submit"><br/>
+	
+</form>
+
+
+</body>
+</html>

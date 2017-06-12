@@ -2,33 +2,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>topic discussion inner</title>
-<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/topic_discussion_inner.css" /> 
+<title>topic_discussion</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/topic_discussion.css" /> 
+<script>
+	function raise(){
+		window.location = "{:url('inner/topic/raiseTopic')}";
+	}
+</script>
 </head>
 <body>
 <div class="banner">
     {include file="../application/inner/view/common/navbar.html"}
 </div>
 <div class="middle">
-   	<div class="topic">
-        <div class="left">{$topic_data.title}~~~~~~~~</div>
-
-        <div class="return"><a href="{:url('inner/topic/index')}">返回</a></div>
-
-    </div>
+	<input class="button" type="button" value="发起话题" onclick="raise()" />
     <div class="outside_box">
-    {volist name="responses_data" id="response"}
+    {volist name="all_topics" id="topic"}
 	    <ul class="box">
-	        <li class="left_box"><p id="author">{$response.responder}</p></li>
+	        <!-- <li class="left_box"><p id="dl_times">17</p><p id="dl_text">本文下载次数</p></li> -->
 	        <li class="article">
-	            <p class="content">{$response.response_body}</p>
-               	<div class="article_info">1楼 2017-06-09 16:25</div>
+            	<div class="article_info">{$topic.raiser} {$topic.date}</div>
+	            <p class="title">
+	            <a href="{:url('inner/topic/getDetail')}/topic_id/{$topic.topic_id}">{$topic.title}</a>
+	            </p>
+	            <p class="content">{$topic.description}</p>
             </li>
 	    </ul>
-	    {/volist}
-	    <div class="text_editor">此处插入文本编辑模板</div>   
+ 	{/volist}
 	</div> 
-	<input class="button" type="button" value="发表" />
+    <div id="pagination">
+        <ul id="pagination-flickr">
+            {$page}
+        </ul>
+    </div>
 </div>
 <div id="foot">
     <div id="foot-up">

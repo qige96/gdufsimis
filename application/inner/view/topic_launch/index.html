@@ -3,20 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>topic_launch</title>
-<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/topic_launch.css" />
-<script type="text/javascript">
-  function returnback(){
-    window.location = "{:url('inner/topic/index')}";
-  }
-</script>
+<link rel=”stylesheet” type=”text/css” href=”__STATIC__/inner/css/topic_launch.css”/> 
 </head>
 <body>
 <div class="banner">
-    {include file="../application/inner/view/common/navbar.html"}
+    <div class="nav">
+     <ul>
+       <li><a href="http://www.w3school.com.cn/">资源社区</a></li>
+       <li><a href="http://www.w3school.com.cn/">话题讨论<div class="layer-selected"></div></a></li>
+       <li id="web_logo"><img src="__STATIC__/inner/images/web_logo.png" alt="web_logo"></li>
+       <li><a href="http://www.w3school.com.cn/">发布文章</a></li>
+       <li><a href="http://www.w3school.com.cn/">个人设置</a></li>
+     </ul>
+    </div>
 </div>
 <div class="middle">
 	<div id="main">
-  <form method="post" action="{:url('inner/topic/addTopic')}">
         <div>
             <div class="layer" data-name="标题"><p align="left">标题</p></div>
             <input id="title" type="text" name="title">
@@ -25,9 +27,8 @@
             <div class="layer" data-name="描述"><p align="left">描述</p></div>
             <input id="description" type="text" name="description">
         </div>
-        <input class="button" id="topic_launch" type="submit" value="发起话题" />
-        <input class="button" id="return" type="button" value="返回" onclick="returnback()" />
-        </form>
+        <input class="button" id="topic_launch" type="button" value="发起话题" />
+        <input class="button" id="return" type="button" value="返回" />
 	</div>
 </div>     
   

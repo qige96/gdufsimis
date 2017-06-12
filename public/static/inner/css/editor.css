@@ -1,0 +1,175 @@
+
+    *{padding: 0;margin:0;}
+	body{
+		text-align:center;
+		width:1366px;
+		}
+	.banner{
+		margin:0 auto;
+		border:0;
+		width:1366px;
+		height:166px;
+		text-align:center;
+		font-family:NotoSansHans-Medium;
+		}
+	.nav ul{
+		width:980px;
+		margin:0px auto;
+		height:165px;
+		padding:0;
+	}
+	.nav ul li{
+		text-align:center;
+		list-style-type:none;
+		float:left;
+		padding:39px 0 0 0;
+	}
+	.layer-selected{
+		width:57px;
+		height:4px;
+		background:#000;
+		margin:0px auto;
+		}
+	#web_logo{
+		border:50px 0 473px 0;
+		}
+	#web_logo img{
+		width:110px;
+		height:126px;
+	}
+	.nav ul li a{
+		vertical-align:middle;
+		width:57px;
+		height:28px;
+		line-height:28px;
+		color:#42271F;
+		margin:50px 80px;
+		font-size:12px;
+		font-style:bold;
+		display:block;
+		text-align:center;
+		text-decoration:none;
+	}
+	.nav ul li a:hover{
+		vertical-align:middle;
+		width:57px;
+		height:28px;
+		font-style:bold;
+		line-height:28px;
+		color:#42271F;
+	}
+	.banner img{
+		width:1366px;
+		height: 638px;
+	}
+	.middle{
+		position:absolute;
+		width:1366px;
+		height:837px;
+		margin:0 auto;
+		background:#FFF;
+		padding:0 75px 171px 0 171px;
+		}
+    #main{
+		width:1024px;
+		height:837px;
+		margin:0 auto;
+		background:#FFF;
+		font-family:NotoSansHans-Regular;
+		position: relative;
+    }
+	.layer{
+		position:relative;
+		width:36px;
+		height:18px;
+		top:86px;
+		left:30px;
+		font-family:MicrosoftYaHeiUI;
+		font-style:bold;
+		color:#333333;
+		}
+	.text{
+		position:relative;
+		text-align:left;
+		top:55px;
+		left:-114px;
+		width:407px;
+		height:32px;
+		}
+	.button{
+		position:relative;
+		top:55px;
+		right:-111px;
+		width:160px;
+		height:32px;
+		background-color:#5E9ED8;
+		border:0;
+		padding:0;
+		border-radius:5px;
+		color:#FFFFFF;
+		font-style:bold;
+		}
+	.textarea{
+		position:relative;
+		top:95px;
+		left:-240px;
+		width:487px;
+		height:638px;
+		overflow-y:scroll;
+		border:40px 478px 80px 201px;
+		}
+	#foot{
+		font-family:NotoSansHans-Regular;
+		position:absolute;
+		margin:1065px 0 0 0;
+		width:1366px;
+		height:328px;
+		}
+	#foot-up{
+		text-align:center;
+		background-color:#000;
+		height:286px;
+		}
+	#foot-up div{
+		text-align:center;
+		margin:0 auto;
+		vertical-align:middle;
+		}
+	#imis_logo{
+		padding:57px 0 40px 0;
+		}
+	#imis_logo img{
+		width:126px;
+		height:82px;
+		}
+	#slogan{
+		width:auto;
+		height:17px;
+		padding:0 0 28px 0;
+		}
+	#link{;
+		width:auto;
+		height:15px;
+		padding:0 0 20px 0;
+		}
+	#foot-up>div{
+    color: #FFF;
+	}
+	#foot-up>div>a:hover {
+    color: #FFF;
+	}
+	#foot-up>div>a:visited {
+    font-size: 12px;
+    color: #FFF;
+    text-decoration: none;
+	}
+	#foot-up>div>a{
+	text-decoration:none;  
+	}
+	#foot-bottom{
+		text-align:center;
+		background-color:#F60;
+		height:42px;
+		line-height:42px;
+		color: #FFF;
+		}

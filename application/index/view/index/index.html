@@ -1,31 +1,234 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="__STATIC__/index/js/jquery-1.8.3.min.js"/></script>
+<script type="text/javascript" src="__STATIC__/index/js/waterfall.js"/></script>
+<script type="text/javascript">
+	$(document).ready(function (){
+		$("#login").click(function (){
+			location = "{:url('inner/login/index')}";
+		});
+	});
+</script>
 
-	<style type="text/css">
-		.pagination li{float: left; margin: 20px; list-style: none;}
-
-	</style>
+<title></title>
+<style type="text/css">
+    *{padding: 0;margin:0;}
+	body{
+		text-align:center;
+		width:1366px;
+		}
+	.banner{
+		background-image:url(__STATIC__/index/images/banner.png);
+		background-repeat:no-repeat;
+		margin:0 auto;
+		border:0;
+		width:1366px;
+		height:638px;
+		text-align:center;
+		font-family:NotoSansHans-Medium;
+		}
+	.nav ul{
+		width:980px;
+		margin:0px auto;
+		height:165px;
+		padding:0;
+	}
+	.nav ul li{
+		text-align:center;
+		list-style-type:none;
+		float:left;
+		padding:39px 0 0 0;
+	}
+	#img_wrapper{
+		cursor: pointer;
+	}
+	#web_logo{
+		border:50px 0 473px 0;
+		}
+	#web_logo img{
+		width:110px;
+		height:126px;
+	}
+	.nav ul li a{
+		vertical-align:middle;
+		width:57px;
+		height:28px;
+		line-height:28px;
+		color:#42271F;
+		margin:50px 80px;
+		font-size:12px;
+		font-style:bold;
+		display:block;
+		text-align:center;
+		text-decoration:none;
+	}
+	.nav ul li a:hover{
+		vertical-align:middle;
+		width:57px;
+		height:28px;
+		font-style:bold;
+		line-height:28px;
+		color:#42271F;
+	}
+	.banner img{
+		width:1366px;
+		height: 638px;
+	}
+	.middle{
+		position:absolute;
+		width:1366px;
+		height:2000px;
+		margin:0 auto;
+		background:#FFF;
+		padding:0 75px 171px 0 171px;
+		}
+    #main{
+		width:1024px;
+		height:2000px;
+		margin:0 auto;
+		background:#FFF;
+		font-family:NotoSansHans-Regular;
+		position: relative;
+    }
+    .pin{
+        float:left;
+		border:50px;
+    }
+    .box{
+		width:308px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .box img{
+		width:308px;
+        height:auto;
+    }
+	.article{
+		background-color:#EFEFEF;
+		width:308px;
+		text-align:left;
+		}
+	.title{
+		color:#333333;
+		font-size:24px;
+		line-height:20px;
+		text-align:center;
+		padding:30px 0 0 0;
+		}
+	.content{
+		color:#555555;
+		font-size:14px;
+		line-height:20px;
+		padding:30px;
+		}
+	#icon{
+		width:33px;
+		height:32px;
+		padding:0;
+		}
+	.like_number{
+	font-size:24px;
+	line-height:20px;
+	color:#555555;
+	border:0;
+	padding:0 0 30px 30px;
+	}
+	#foot{
+		font-family:NotoSansHans-Regular;
+		position:absolute;
+		margin:2368px 0 0 0;
+		width:1366px;
+		height:328px;
+		}
+	#foot-up{
+		text-align:center;
+		background-color:#000;
+		height:286px;
+		}
+	#foot-up div{
+		text-align:center;
+		margin:0 auto;
+		vertical-align:middle;
+		}
+	#imis_logo{
+		padding:57px 0 40px 0;
+		}
+	#imis_logo img{
+		width:126px;
+		height:82px;
+		}
+	#slogan{
+		width:auto;
+		height:17px;
+		padding:0 0 28px 0;
+		}
+	#link{;
+		width:auto;
+		height:15px;
+		padding:0 0 20px 0;
+		}
+	#foot-up>div{
+    color: #FFF;
+	}
+	#foot-up>div>a:hover {
+    color: #FFF;
+	}
+	#foot-up>div>a:visited {
+    font-size: 12px;
+    color: #FFF;
+    text-decoration: none;
+	}
+	#foot-up>div>a{
+	text-decoration:none;  
+	}
+	#foot-bottom{
+		text-align:center;
+		background-color:#F60;
+		height:42px;
+		line-height:42px;
+		color: #FFF;
+		}
+</style>
 </head>
 <body>
-hello world!
-<a href="{:url('inner/login/index')}">登陆</a> <br/>
-
-<div>
-	<ul>
-		{volist name='articles_info' id='article'}
-		    <li> 
-		    	{$article.article_id}
-		    	<a href="{:url('index/article/index')}/article_id/{$article.article_id}">{$article.title}</a>
-				{$article.description}
-		    </li>
-		{/volist}
-	</ul>
-
+<div class="banner">
+    <div class="nav">
+     <ul>
+       <li><a href=""></a></li>
+       <li><a href=""></a></li>
+       <li id="web_logo" ><span id="img_wrapper"><img id="login" src="__STATIC__/index/images/web_logo.png" alt="web_logo" ></span></li>
+       <li><a href=""></a></li>
+       <li><a href=""></a></li>
+     </ul>
+    </div>
 </div>
-{$page}
-
-</form>
+<div class="middle">
+	<div id="main">
+	{volist name='articles_info' id='article'}
+        <div class="pin">
+            <div class="box">
+                <div class="article">
+                    <img src="__STATIC__/index/images/pic_01.png" class="article-img"/>
+                    <p class="title"><a href="{:url('index/article/index')}/article_id/{$article.article_id}">{$article.title}</a></p>
+                    <p class="content">{$article.description}</p>
+                    <p class="like_number"><img id="icon" src="__STATIC__/index/images/like.png" alt="like"> 32</p>
+                </div>
+            </div>
+        </div>
+        {/volist}        
+	</div> 	     
+</div>    
+<div id="foot">
+    <div id="foot-up">
+      <div id="imis_logo">
+            <img src="__STATIC__/index/images/imis_logo.png">
+        </div>
+      <div id="slogan">信管出击，天下无敌</div>
+      <div id="link"><a href="http://www.w3school.com.cn">班级文化</a> | <a href="http://www.w3school.com.cn">班委成员</a> | <a href="http://www.w3school.com.cn">logo下载</a></div>
+    </div>
+    <div id="foot-bottom">Copyright © 2017 网站建设作业</div>
+</div>    
 </body>
 </html>

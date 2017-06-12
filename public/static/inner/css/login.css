@@ -1,0 +1,152 @@
+*{padding: 0;margin:0;}
+body{
+	text-align:center;
+	width:1366px;
+	}
+.banner{
+	margin:0 auto;
+	border:0;
+	width:1366px;
+	height:166px;
+	text-align:center;
+	font-family:NotoSansHans-Medium;
+	}
+#web_logo img{
+	margin:0 auto;
+	width:110px;
+	height:126px;
+}
+.middle{
+	position:absolute;
+	width:1366px;
+	margin:0 auto;
+	background:#FFF;
+	padding:0 75px 171px 0 171px;
+	}
+#main{
+	position: relative;
+	text-align:center;
+	display: table;
+	width:1024px;
+	height:400px;
+	margin:0 auto;
+	background:#FFF;
+	font-family:NotoSansHans-Regular;
+}
+.layer{
+	position:relative;
+	top:279px;
+	right:279.5px;
+	width:72px;
+	height:19px;
+	margin:0 auto;
+	font-size:18px;
+	font-family:MicrosoftYaHeiUI;
+	font-style:bold;
+	color:#333333;
+	}
+#account{
+	position:relative;
+	text-align:left;
+	top:250px;
+	width:407px;
+	height:32px;
+	background-color:#EFEFEF;
+	border:0;
+	padding:0;
+	}
+#password{
+	position:relative;
+	text-align:left;
+	top:250px;
+	width:407px;
+	height:32px;
+	background-color:#EFEFEF;
+	border:0;
+	padding:0;
+	}
+.oaRelea_pwd{
+	position:relative;
+	top:272px;
+	left:-165px;
+	}
+input[type=checkbox] {
+   top:300px;
+   width:16px;
+   height:16px;
+   cursor: pointer;
+   background: transparent;
+   border:1px solid #999999;
+}
+.oaRem_password{
+	font-family:MicrosoftYaHeiUI;
+	font-size:14px;
+	font-color:#999999;
+	}
+.oaLogin_btn{
+	position:relative;
+	top:288px;
+	width:407px;
+	height:32px;
+	background-color:#5E9ED8;
+	border:0;
+	padding:0;
+	border-radius:5px;
+	color:#FFFFFF;
+	font-style:bold;
+	font-size:16px;
+	}
+#foot{
+	font-family:NotoSansHans-Regular;
+	margin:750px 0 0 0;
+	width:1366px;
+	height:328px;
+	}
+#foot-up{
+	text-align:center;
+	background-color:#000;
+	height:286px;
+	}
+#foot-up div{
+	text-align:center;
+	margin:0 auto;
+	vertical-align:middle;
+	}
+#imis_logo{
+	padding:57px 0 40px 0;
+	}
+#imis_logo img{
+	width:126px;
+	height:82px;
+	}
+#slogan{
+	width:auto;
+	height:17px;
+	padding:0 0 28px 0;
+	}
+#link{;
+	width:auto;
+	height:15px;
+	padding:0 0 20px 0;
+	}
+#foot-up>div{
+color: #FFF;
+}
+#foot-up>div>a:hover {
+color: #FFF;
+}
+#foot-up>div>a:visited {
+font-size: 12px;
+color: #FFF;
+text-decoration: none;
+}
+#foot-up>div>a{
+text-decoration:none;  
+}
+#foot-bottom{
+	text-align:center;
+	background-color:#F60;
+	height:42px;
+	line-height:42px;
+	color: #FFF;
+	}

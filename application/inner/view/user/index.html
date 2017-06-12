@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>user</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>personal setting</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/personal_setting.css" />
+ 
 </head>
-<body>
-This is the index page of certain user.<br/>
-
-<a href="{:url('login/logout')}">退出登陆</a><br/>
-{include file="../application/inner/view/common/navbar.html"}<br/>
-<form method="post" action="updateInfo">
-<input type="hidden" name="stu_id" value="{$stu.stu_id}"><br/>
-password<input type="text" name="password"><br/>
-confirm password<input type="text" name="confirm_password"><br/>
-nick_name<input type="text" name="nick_name" value="{$stu.nick_name}"><br/>
-signature<input type="text" name="signature" value="{$stu.signature}">
-<input type="submit" name="submit"><br/>
-</form>
-
-<a href="{:url('login/logout')}">退出登陆</a>
+<body>    
+<a style="float: right;" href="{:url('login/logout')}">退出登陆</a>
+<div class="banner">
+    {include file="../application/inner/view/common/navbar.html"}
+</div>
+<div class="middle">
+	<div id="main">
+    <form method="post" action="updateInfo">
+        <div>
+            <div class="layer" data-name="修改昵称"><p align="left">修改昵称</p></div>
+            <input class="text" type="text" name="nick_name" value="{$stu.nick_name}">
+        </div>
+        <div>
+            <div class="layer" data-name="修改密码"><p align="left">修改密码</p></div>
+            <input class="text" type="password" name="password">
+        </div>
+        <div>
+            <div class="layer" data-name="确认密码"><p align="left">确认密码</p></div>
+            <input class="text" type="password" name="confirm_password">
+        </div>
+        <div>
+            <div class="layer" data-name="个性签名"><p align="left">个性签名</p></div>
+            <input class="text" type="text" name="signature" value="{$stu.signature}" >
+        </div>
+        <input class="button" type="submit" name="submit"><br/>
+    </form>
+    
+	</div>
+</div>     
+  
+<div id="foot">
+    <div id="foot-up">
+      <div id="imis_logo">
+            <img src="__STATIC__/inner/images/imis_logo.png">
+        </div>
+      <div id="slogan">信管出击，天下无敌</div>
+      <div id="link"><a href="http://www.w3school.com.cn">班级文化</a> | <a href="http://www.w3school.com.cn">班委成员</a> | <a href="http://www.w3school.com.cn">logo下载</a></div>
+    </div>
+    <div id="foot-bottom">Copyright © 2017 网站建设作业</div>
+</div>    
 </body>
 </html>

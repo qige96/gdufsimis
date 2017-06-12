@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>editor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>editor</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/inner/css/editor.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/common/css/editor.js">
+<link rel="stylesheet" type="text/css" href="../__MD__/mdeditor.css">
+<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
+<!-- 以下是关于markdown编辑器的配置 -->
 	<style type="text/css">
-
-		/*body, input, select, textarea {
-            font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
-        }*/
-
 		body, input, select, textarea {
             font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
 	        }
@@ -17,25 +18,39 @@
 	        }
 
 	        .mdeditor-html{
-	            width: 660px;
+	            width: 510px;
+	            text-align: left;
 	        }
-	        #editor {
-	            height: 600px;
+	        .button{
+	        	cursor: pointer;
 	        }
+	        
 	</style>
-	<link rel="stylesheet" type="text/css" href="../__MD__/mdeditor.css">
-	<script type="text/javascript" src="__STATIC__/common/js/jquery-3.2.0.js"></script>
 </head>
 <body>
-This is the index page of editor.<br/><a href="{:url('login/logout')}">退出登陆</a><br/>
-{include file="../application/inner/view/common/navbar.html"}<br/>
+<div class="banner">
+{include file="../application/inner/view/common/navbar.html"}
+</div>
+<div class="middle">
+	<div id="main">
+        <div>
+            <div class="layer" data-name="标题"><p align="left">标题</p></div>
+            <input class="text" type="text" name="title">
+            <input id="publish" class="button" type="button" value="发布" />
+        </div>
+        <div>
+            <div class="layer" data-name="概要"><p align="left">概要</p></div>
+            <input class="text" type="text" name="description">
+            <input class="button" type="button" value="保存(暂未实现)" />
+        </div>
+        <br/><br/><br/><br/>
 
-<button id="publish">发布</button>
-title<input type="text" name="title"><br/>
-description<input type="text" name="description"><br/>
-<div id="editor"></div>
+		<div id="editor"></div>
+        
+    </div>
 
-</body>
+</div>
+
 
 <script type="text/javascript" src="../__MD__/mdeditor.js"></script>
 
@@ -107,6 +122,55 @@ function test(){
 $[200](about:blank)
 </script>
 
+<script type="text/javascript">
+	var editor = mdeditor({
+		id: "editor",
+		placeholder: "markdown editor"
+	});
+	editor.setMarkdown(document.getElementById('md_preview').innerHTML);
+
+
+	function redirect(){
+		location = "{:url('index/index/index')}";
+	}
+
+	
+	var btn = document.getElementById('publish');
+	btn.onclick = function () {
+		// body...
+		var title = document.getElementsByName('title')[0].value;
+		var description = document.getElementsByName('description')[0].value;
+		var content = editor.getHTML();
+		console.log(title);
+		console.log(description);
+		console.log(content);
+
+		var article_data = {
+			title: title,
+			description: description,
+			content: content
+		};
+		$.post("{:url('index/article/addArticle')}", article_data, function(data, status){
+
+			alert("文章上传结果："+status+"\n"+"点击确定跳转到主页。");
+			redirect();
+
+		});
+	}
+</script>
+  	</div>     
+</div>    
+<div id="foot">
+    <div id="foot-up">
+      <div id="imis_logo">
+            <img src="__STATIC__/inner/images/imis_logo.png">
+        </div>
+      <div id="slogan">信管出击，天下无敌</div>
+      <div id="link"><a href="http://www.w3school.com.cn">班级文化</a> | <a href="http://www.w3school.com.cn">班委成员</a> | <a href="http://www.w3school.com.cn">logo下载</a></div>
+    </div>
+    <div id="foot-bottom">Copyright © 2017 网站建设作业</div>
+</div>    
+</body>
 <script type="text/javascript">
 	var editor = mdeditor({
 		id: "editor",
